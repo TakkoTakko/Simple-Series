@@ -1,0 +1,8 @@
+{
+  "name": "Homes",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "Home System",
+  "main": "de.takko.simple.modules.home.HomesModule",
+  "commands": ["home"]
+}

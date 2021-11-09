@@ -1,0 +1,12 @@
+Broadcast   ✓
+Chat
+Enderchest   ✓
+Gamemode   ✓
+homes
+joinquitmessages
+maintenance
+money
+rewards
+teamchat   ✓
+time   ✓
+warps   ✓
