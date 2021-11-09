@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -39,7 +40,7 @@ public abstract class SimpleModule {
         this.listenerSet.add(listener);
     }
 
-    public PluginCommand registerCommand(String name) {
+    public PluginCommand registerCommand(String name, String... aliases) {
         try {
             name = name.trim().toLowerCase(Locale.ROOT).replace(' ', '_');
 
@@ -49,6 +50,7 @@ public abstract class SimpleModule {
             Constructor<PluginCommand> declaredConstructor = PluginCommand.class.getDeclaredConstructor(String.class, Plugin.class);
             declaredConstructor.setAccessible(true);
             PluginCommand command = declaredConstructor.newInstance(name, holder);
+            command.setAliases(Arrays.asList(aliases));
 
             boolean register = commandMap.register(holder.getDescription().getName(), command);
             return register ? command : null;

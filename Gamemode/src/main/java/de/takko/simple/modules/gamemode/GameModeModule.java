@@ -6,9 +6,9 @@ import de.takko.simple.manager.utils.FileManager;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class GamemodeModule extends SimpleModule {
+public class GameModeModule extends SimpleModule {
     
-    public GamemodeModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public GameModeModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
     
@@ -20,8 +20,8 @@ public class GamemodeModule extends SimpleModule {
     
         initConfig();
         
-        registerCommand("gamemode").setExecutor(new GamemodeCommand());
-        registerCommand("gm").setExecutor(new GamemodeCommand());
+        registerCommand("gamemode").setExecutor(new GameModeCommand());
+        registerCommand("gm").setExecutor(new GameModeCommand());
     }
 
     @Override

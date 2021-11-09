@@ -1,8 +1,8 @@
 {
-  "name": "Gamemode",
+  "name": "GameMode",
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Gamemode commands :D",
-  "main": "de.takko.simple.modules.gamemode.GamemodeModule",
+  "main": "de.takko.simple.modules.gamemode.GameModeModule",
   "commands": ["gamemode", "gm"]
 }

@@ -4,11 +4,12 @@ import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import org.bukkit.Server;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class EnderchestModule extends SimpleModule {
+public class EnderChestModule extends SimpleModule {
 
-    public EnderchestModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public EnderChestModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
 
@@ -20,8 +21,8 @@ public class EnderchestModule extends SimpleModule {
 
         initConfig();
 
-        registerCommand("enderchest").setExecutor(new EnderchestCommand());
-        registerCommand("ec").setExecutor(new EnderchestCommand());
+        PluginCommand command = registerCommand("enderchest", "ec");
+        command.setExecutor(new EnderChestCommand());
     }
 
     @Override

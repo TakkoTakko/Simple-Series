@@ -1,8 +1,8 @@
 {
-  "name": "Enderchest",
+  "name": "EnderChest",
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Enderchest plugin",
-  "main": "de.takko.simple.modules.enderchest.EnderchestModule",
+  "main": "de.takko.simple.modules.enderchest.EnderChestModule",
   "commands": ["enderchest", "ec"]
 }

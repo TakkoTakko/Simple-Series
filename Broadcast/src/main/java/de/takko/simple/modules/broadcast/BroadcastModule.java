@@ -4,7 +4,10 @@ import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import org.bukkit.Server;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Arrays;
 
 public class BroadcastModule extends SimpleModule {
 
@@ -20,8 +23,8 @@ public class BroadcastModule extends SimpleModule {
 
         initConfig();
 
-        registerCommand("broadcast").setExecutor(new BroadcastCommand());
-        registerCommand("bc").setExecutor(new BroadcastCommand());
+        PluginCommand command = registerCommand("broadcast", "bc");
+        command.setExecutor(new BroadcastCommand());
     }
 
     @Override

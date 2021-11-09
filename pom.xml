@@ -8,8 +8,17 @@
     <artifactId>Simple_Series</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+
     <modules>
-        <module>Enderchest</module>
+        <module>EnderChest</module>
+        <module>SimpleManager</module>
+        <module>Broadcast</module>
+        <module>Gamemode</module>
+        <module>Homes</module>
+        <module>Teamchat</module>
+        <module>TestModule</module>
+        <module>Time</module>
+        <module>Warp</module>
     </modules>
 
     <properties>
