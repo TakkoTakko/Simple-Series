@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Locale;
+
 public class GameModeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -59,7 +61,7 @@ public class GameModeCommand implements CommandExecutor {
                 return true;
             }
 
-            target.setGameMode(GameMode.SURVIVAL);
+            target.setGameMode(mode);
             player.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.self." + mode.getValue()).replaceAll("%name%", target.getName()));
             target.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.other." + mode.getValue()).replaceAll("%name%", player.getName()));
             return true;
@@ -67,16 +69,12 @@ public class GameModeCommand implements CommandExecutor {
         return true;
     }
 
-    public GameMode parseGameMode(String gamemode) {
-        if (gamemode.equalsIgnoreCase("survival") || gamemode.equalsIgnoreCase("0")) {
-            return GameMode.SURVIVAL;
-        } else if (gamemode.equalsIgnoreCase("creative") || gamemode.equalsIgnoreCase("1")) {
-            return GameMode.CREATIVE;
-        } else if (gamemode.equalsIgnoreCase("adventure") || gamemode.equalsIgnoreCase("2")) {
-            return GameMode.ADVENTURE;
-        } else if (gamemode.equalsIgnoreCase("spectator") || gamemode.equalsIgnoreCase("3")) {
-            return GameMode.SPECTATOR;
+    public GameMode parseGameMode(String mode) {
+        try {
+            int b = Integer.parseInt(mode);
+            return GameMode.getByValue(b);
+        } catch (NumberFormatException e) {
+            return GameMode.valueOf(mode.toUpperCase(Locale.ROOT));
         }
-        return null;
     }
 }
