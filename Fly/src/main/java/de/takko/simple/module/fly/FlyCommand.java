@@ -11,55 +11,41 @@ public class FlyCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            if (!FlyModule.getFileManager().hasPermission(player, FlyModule.getFileManager().getWithout("permission"))) {
-                player.sendMessage(FlyModule.getFileManager().getWithPrefix("NoPerm"));
+
+        if (!FlyModule.getFileManager().hasPermission(sender, FlyModule.getFileManager().getWithout("permission"))) {
+            sender.sendMessage(FlyModule.getFileManager().getWithPrefix("NoPerm"));
+            return true;
+        }
+
+        if (args.length == 0) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(FlyModule.getFileManager().getWithPrefix("NoPlayer"));
                 return true;
             }
-            if (args.length == 0) {
-                if (player.getAllowFlight()) {
-                    if (player.getGameMode() != GameMode.CREATIVE) {
-                        player.setAllowFlight(false);
-                    }
-                } else {
-                    player.setAllowFlight(true);
-                }
-            }
-            else if (args.length == 1) {
-                Player target = Bukkit.getPlayer(args[0]);
-                if (target == null) {
-                    player.sendMessage(FlyModule.getFileManager().getWithPrefix("OfflinePlayer"));
-                    return true;
-                }
-                if (target.getAllowFlight()) {
-                    if (target.getGameMode() != GameMode.CREATIVE) {
-                        target.setAllowFlight(false);
-                        //TODO: messages
-                    }
-                } else {
-                    target.setAllowFlight(true);
-                }
-            } else {
-                // Syntax
-            }
-        } else {
-            if (args.length == 1) {
-                Player target = Bukkit.getPlayer(args[0]);
-                if (target == null) {
-                    sender.sendMessage(FlyModule.getFileManager().getWithPrefix("OfflinePlayer"));
-                    return true;
-                }
-                if (target.getAllowFlight()) {
-                    if (target.getGameMode() != GameMode.CREATIVE) {
-                        target.setAllowFlight(false);
-                        //TODO: messages
-                    }
-                } else {
-                    target.setAllowFlight(true);
-                }
-            }
+            Player player = (Player) sender;
+            if (player.getGameMode() == GameMode.CREATIVE && player.getAllowFlight())
+                return true;
+
+            player.setAllowFlight(!player.getAllowFlight());
+
+            return true;
         }
+
+        if (args.length == 1) {
+            Player target = Bukkit.getPlayer(args[0]);
+            if (target == null) {
+                sender.sendMessage(FlyModule.getFileManager().getWithPrefix("OfflinePlayer"));
+                return true;
+            }
+
+            if (target.getGameMode() == GameMode.CREATIVE && target.getAllowFlight())
+                return true;
+
+            target.setAllowFlight(!target.getAllowFlight());
+            return true;
+        }
+
+        // Syntax
         return true;
     }
 }
