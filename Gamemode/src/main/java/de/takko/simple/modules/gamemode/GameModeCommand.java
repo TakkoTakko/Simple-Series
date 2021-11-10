@@ -21,7 +21,7 @@ public class GameModeCommand implements CommandExecutor {
             Player player = (Player) sender;
             GameMode mode = parseGameMode(args[0]);
 
-            if(mode == null) {
+            if (mode == null) {
                 player.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("syntax"));
                 return true;
             }
@@ -36,11 +36,11 @@ public class GameModeCommand implements CommandExecutor {
             return true;
         }
 
-        if(args.length == 2) {
+        if (args.length == 2) {
             Player player = (Player) sender;
             GameMode mode = parseGameMode(args[0]);
 
-            if(mode == null) {
+            if (mode == null) {
                 player.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("message.syntax"));
                 return true;
             }
@@ -74,7 +74,11 @@ public class GameModeCommand implements CommandExecutor {
             int b = Integer.parseInt(mode);
             return GameMode.getByValue(b);
         } catch (NumberFormatException e) {
-            return GameMode.valueOf(mode.toUpperCase(Locale.ROOT));
+            try {
+                return GameMode.valueOf(mode.toUpperCase(Locale.ROOT));
+            } catch (IllegalArgumentException e1) {
+                return null;
+            }
         }
     }
 }
