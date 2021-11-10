@@ -29,9 +29,9 @@ public class HomeCommand implements CommandExecutor {
         }
         else if (args.length == 2) {
             String name = args[1];
-            if (args[0].equalsIgnoreCase("add") || args[0].equalsIgnoreCase("create")) {
+            if (args[0].equalsIgnoreCase("add") || args[0].equalsIgnoreCase("create") || args[0].equalsIgnoreCase("set")) {
                 if (homeManager.exists(name)) {
-                    player.sendMessage(HomesModule.getFileManager().getWithPrefix("already_exists"));
+                    player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.already_exists"));
                     return true;
                 }
                 homeManager.addHome(player.getLocation(), name);
