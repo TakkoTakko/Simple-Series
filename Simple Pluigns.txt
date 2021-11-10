@@ -1,8 +1,8 @@
 Broadcast   ✓
-Chat
+Chat        ✓
 Enderchest   ✓
 Gamemode   ✓
-homes
+homes       ✓
 joinquitmessages
 maintenance
 money
