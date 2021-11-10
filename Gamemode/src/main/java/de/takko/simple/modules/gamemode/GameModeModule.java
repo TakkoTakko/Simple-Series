@@ -40,19 +40,19 @@ public class GameModeModule extends SimpleModule {
         fileManager.addDefault("permission.gamemode.2", "simple.gamemode.2");
         fileManager.addDefault("permission.gamemode.3", "simple.gamemode.3");
 
-        fileManager.addDefault("message.self.0", "&aDu hast &edich &ain den Survivalmodus geaddzt.");
-        fileManager.addDefault("message.self.1", "&aDu hast &edich &ain den Creativemodus geaddzt.");
-        fileManager.addDefault("message.self.2", "&aDu hast &edich &ain den Abenteuermodus geaddzt.");
-        fileManager.addDefault("message.self.3", "&aDu hast &edich &ain den Zuschauermodus geaddzt.");
-        fileManager.addDefault("message.other.self.0", "&aDu hast &e%name% &ain den &eSurvivalmodus geaddzt.");
-        fileManager.addDefault("message.other.self.1", "&aDu hast &e%name% &ain den &eCreativemodus geaddzt.");
-        fileManager.addDefault("message.other.self.2", "&aDu hast &e%name% &ain den &eAbenteuermodus geaddzt.");
-        fileManager.addDefault("message.other.self.3", "&aDu hast &e%name% &ain den &eZuschauermodus geaddzt.");
-        fileManager.addDefault("message.other.other.0", "&aDu wurdest von &e%name% &ain den &eSurvivalmodus &ageaddzt.");
-        fileManager.addDefault("message.other.other.1", "&aDu wurdest von &e%name% &ain den &eCreativemodus &ageaddzt.");
-        fileManager.addDefault("message.other.other.2", "&aDu wurdest von &e%name% &ain den &eAbenteuermodus &ageaddzt.");
-        fileManager.addDefault("message.other.other.3", "&aDu wurdest von &e%name% &ain den &eZuschauermodus &ageaddzt.");
-        fileManager.addDefault("message.error", "&cWenn du dich selber in einen anderen Spielmodus veraddzten willst \n Benutze: &6/gamemode &7<&60&7,&61&7,&62&7,&63&7>");
+        fileManager.addDefault("message.self.0", "&aDu hast &edich &ain den Survivalmodus gesetzt.");
+        fileManager.addDefault("message.self.1", "&aDu hast &edich &ain den Creativemodus gesetzt.");
+        fileManager.addDefault("message.self.2", "&aDu hast &edich &ain den Abenteuermodus gesetzt.");
+        fileManager.addDefault("message.self.3", "&aDu hast &edich &ain den Zuschauermodus gesetzt.");
+        fileManager.addDefault("message.other.self.0", "&aDu hast &e%name% &ain den &eSurvivalmodus gesetzt.");
+        fileManager.addDefault("message.other.self.1", "&aDu hast &e%name% &ain den &eCreativemodus gesetzt.");
+        fileManager.addDefault("message.other.self.2", "&aDu hast &e%name% &ain den &eAbenteuermodus gesetzt.");
+        fileManager.addDefault("message.other.self.3", "&aDu hast &e%name% &ain den &eZuschauermodus gesetzt.");
+        fileManager.addDefault("message.other.other.0", "&aDu wurdest von &e%name% &ain den &eSurvivalmodus &agesetzt.");
+        fileManager.addDefault("message.other.other.1", "&aDu wurdest von &e%name% &ain den &eCreativemodus &agesetzt.");
+        fileManager.addDefault("message.other.other.2", "&aDu wurdest von &e%name% &ain den &eAbenteuermodus &agesetzt.");
+        fileManager.addDefault("message.other.other.3", "&aDu wurdest von &e%name% &ain den &eZuschauermodus &agesetzt.");
+        fileManager.addDefault("message.error", "&cWenn du dich selber in einen anderen Spielmodus versetzt willst \n Benutze: &6/gamemode &7<&60&7,&61&7,&62&7,&63&7>");
         fileManager.addDefault("message.syntax", "&cBitte benutze: &6/gamemode &7<&60&7,&61&7,&62&7,&63&7> <&6Spieler&7>");
 
         fileManager.saveDefaults();
