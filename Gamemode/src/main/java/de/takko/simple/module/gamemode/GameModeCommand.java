@@ -22,7 +22,7 @@ public class GameModeCommand implements CommandExecutor {
             GameMode mode = parseGameMode(args[0]);
 
             if (mode == null) {
-                player.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("syntax"));
+                player.sendMessage(GameModeModule.getFileManager().getWithPrefix("syntax"));
                 return true;
             }
 
@@ -41,7 +41,7 @@ public class GameModeCommand implements CommandExecutor {
             GameMode mode = parseGameMode(args[0]);
 
             if (mode == null) {
-                player.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("message.syntax"));
+                player.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.syntax"));
                 return true;
             }
 
