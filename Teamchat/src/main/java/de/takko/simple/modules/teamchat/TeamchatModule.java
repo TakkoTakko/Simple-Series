@@ -20,8 +20,7 @@ public class TeamchatModule extends SimpleModule {
 
         initConfig();
 
-        registerCommand("teamchat").setExecutor(new TeamchatCommand());
-        registerCommand("tc").setExecutor(new TeamchatCommand());
+        registerCommand("teamchat", "tc").setExecutor(new TeamchatCommand());
     }
 
     @Override

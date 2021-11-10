@@ -20,8 +20,7 @@ public class GameModeModule extends SimpleModule {
     
         initConfig();
         
-        registerCommand("gamemode").setExecutor(new GameModeCommand());
-        registerCommand("gm").setExecutor(new GameModeCommand());
+        registerCommand("gamemode", "gm").setExecutor(new GameModeCommand());
     }
 
     @Override
