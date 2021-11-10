@@ -1,6 +1,7 @@
 package de.takko.simple.modules.homes;
 
 import de.takko.simple.manager.ModuleInfo;
+import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import de.takko.simple.modules.homes.commands.HomeCommand;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class HomesModule extends SimpleModule {
 
-    public HomesModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public HomesModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
 
