@@ -1,6 +1,7 @@
 package de.takko.simple.manager;
 
 import com.google.common.base.Joiner;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import de.takko.simple.manager.utils.Logger;
 import de.takko.simple.manager.utils.Utils;
 import org.bukkit.event.HandlerList;
@@ -8,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -60,6 +62,17 @@ public class SimpleManager extends JavaPlugin {
             for (Listener listener : simpleModule.getListenerSet()) {
                 HandlerList.unregisterAll(listener);
                 logger.log(Logger.LogType.UNLOADING, "§e" + getDescription().getName() + " §ais shutting down.");
+            }
+
+            ClassLoader classLoader = simpleModule.getClass().getClassLoader();
+            if(classLoader instanceof ModuleLoader) {
+                ModuleLoader loader = (ModuleLoader) simpleModule.getClass().getClassLoader();
+                try {
+                    logger.log(Logger.LogType.INFO, "§aClosing class loader");
+                    loader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         this.moduleSet.clear();
