@@ -1,6 +1,7 @@
 package de.takko.simple.modules.teamchat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,6 +27,7 @@ public class TeamchatCommand implements CommandExecutor {
             return;
         }
         String message = String.join(" ", args);
+        message = ChatColor.translateAlternateColorCodes('&', message);
         for (Player p1 : Bukkit.getOnlinePlayers()) {
             if (p1.hasPermission(TeamchatModule.getFileManager().get("permission"))) {
                 if (sender instanceof Player) {

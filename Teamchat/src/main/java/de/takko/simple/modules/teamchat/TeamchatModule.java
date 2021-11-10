@@ -33,7 +33,7 @@ public class TeamchatModule extends SimpleModule {
         fileManager.addDefault("NoPerm", "&cDazu hast du keine Rechte!");
         fileManager.addDefault("OfflinePlayer", "&cDieser Spieler ist offline");
         fileManager.addDefault("console_replacement", "Konsole");
-        fileManager.addDefault("format", "%prefix% &7» &e%player% &7» &5%msg%");
+        fileManager.addDefault("format", "%prefix% &7» &e%player% &7» &r%msg%");
         fileManager.addDefault("permission", "simple.teamchat.use");
 
         fileManager.saveDefaults();

@@ -6,7 +6,9 @@ import de.takko.simple.manager.utils.FileManager;
 import de.takko.simple.modules.homes.commands.HomeCommand;
 import de.takko.simple.modules.homes.commands.HomesCommand;
 import de.takko.simple.modules.homes.listeners.HomeListener;
+import de.takko.simple.modules.homes.manager.HomeManager;
 import de.takko.simple.modules.homes.utils.Home;
+import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,12 +35,33 @@ public class HomesModule extends SimpleModule {
 
         registerCommand("home").setExecutor(new HomeCommand());
         registerCommand("homes").setExecutor(new HomesCommand());
+
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            HomeManager homeManager = new HomeManager(player);
+            homeManager.saveHomes();
+            homeManager.loadHomes();
+        });
     }
 
     @Override
     public void terminate() {}
 
     private void initConfig() {
+        fileManager.addDefault("Prefix", "&7[&bHomes&7] &r");
+        fileManager.addDefault("NoPerm", "&cDazu hast du keine Rechte!");
+        fileManager.addDefault("NoPlayer", "&cDu musst ein Spieler sein!");
+
+        fileManager.addDefault("home.teleport", "&aDu wurdest zu &e%home% &ateleportiert.");
+        fileManager.addDefault("home.not_exists", "&cDieser Home existiert nicht!");
+        fileManager.addDefault("home.already_exists", "&cDieser Home existiert bereits!");
+
+        fileManager.addDefault("home.add", "&aDu hast den Home &e%home% &aerstellt.");
+        fileManager.addDefault("home.remove", "&aDu hast den Home &e%home% &aentfernt.");
+        fileManager.addDefault("home.update", "&aDu hast die Position von &e%home% &age\u00E4ndert");
+
+        fileManager.addDefault("syntax", "&aNutz den Befehl richtig du KEK.");
+        fileManager.addDefault("homes.format", "&aDeine Homes&7: &e%homes%");
+        fileManager.addDefault("homes.seperator", "&7, &e");
 
         fileManager.saveDefaults();
     }

@@ -17,7 +17,7 @@ public class BroadcastCommand implements CommandExecutor {
                 return true;
             }
         }
-        if (args.length != 1) {
+        if (args.length == 0) {
             sender.sendMessage(BroadcastModule.getFileManager().getWithPrefix("syntax"));
             return true;
         }
