@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Home System",
-  "main": "de.takko.simple.modules.homes.HomesModule",
+  "main": "de.takko.simple.module.homes.HomesModule",
   "commands": ["home", "homes"]
 }

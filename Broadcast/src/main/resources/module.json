@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "broadcast plugin",
-  "main": "de.takko.simple.modules.broadcast.BroadcastModule",
+  "main": "de.takko.simple.module.broadcast.BroadcastModule",
   "commands": ["broadcast", "bc"]
 }

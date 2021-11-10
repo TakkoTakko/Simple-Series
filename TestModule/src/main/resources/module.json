@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Test some things",
-  "main": "de.takko.simple.modules.test.TestModule",
+  "main": "de.takko.simple.module.test.TestModule",
   "commands": ["test"]
 }

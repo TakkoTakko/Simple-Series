@@ -3,7 +3,7 @@ package de.takko.simple.manager;
 import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import de.takko.simple.manager.utils.Logger;
+import de.takko.simple.manager.util.Logger;
 import lombok.Getter;
 import org.bukkit.Server;
 

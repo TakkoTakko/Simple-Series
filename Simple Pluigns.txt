@@ -3,10 +3,11 @@ Chat        ✓
 Enderchest   ✓
 Gamemode   ✓
 homes       ✓
-joinquitmessages
+joinquitmessages   ✓
 maintenance
 money
 rewards
 teamchat   ✓
 time   ✓
 warps   ✓
+fly   ✓

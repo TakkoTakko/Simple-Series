@@ -1,0 +1,8 @@
+{
+  "name": "Fly",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "Fly",
+  "main": "de.takko.simple.module.fly.FlyModule",
+  "commands": ["fly"]
+}

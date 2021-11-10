@@ -22,6 +22,8 @@
         <module>Spawn</module>
         <module>Chat</module>
         <module>RewardModule</module>
+        <module>Join_Quit_Messages</module>
+        <module>Fly</module>
     </modules>
 
     <properties>
