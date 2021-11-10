@@ -89,14 +89,6 @@ public class FileManager {
         return cfg;
     }
 
-    public String getAdminPermission() {
-        return adminPermission;
-    }
-
-    public String getPrefixKey() {
-        return prefixKey;
-    }
-
     private void save() {
         try {
             cfg.save(file);
