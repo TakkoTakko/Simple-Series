@@ -1,0 +1,8 @@
+{
+  "name": "Spawn",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "Spawn",
+  "main": "de.takko.simple.modules.spawn.SpawnModule",
+  "commands": ["spawn", "setspawn"]
+}

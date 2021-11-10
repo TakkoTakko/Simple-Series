@@ -45,6 +45,9 @@ public class FileManager {
     public String getWithPrefix(String key) {
         return ChatColor.translateAlternateColorCodes('&', (cfg.getString(prefixKey) + cfg.getString(key)));
     }
+    public String getWithout(String key) {
+        return cfg.getString(key);
+    }
     public void set(String key, Object value) {
         cfg.set(key, value);
         save();
@@ -54,7 +57,9 @@ public class FileManager {
     }
     public void saveDefaults() {
         for (String key : defaults.keySet()) {
-            cfg.set(key, defaults.get(key));
+            if (cfg.get(key) == null) {
+                cfg.set(key, defaults.get(key));
+            }
         }
         defaults.clear();
         save();

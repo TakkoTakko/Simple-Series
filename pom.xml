@@ -19,6 +19,7 @@
         <module>TestModule</module>
         <module>Time</module>
         <module>Warp</module>
+        <module>Spawn</module>
     </modules>
 
     <properties>
