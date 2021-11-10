@@ -1,11 +1,10 @@
-package de.takko.simple.modules.enderchest;
+package de.takko.simple.module.enderchest;
 
 import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.utils.FileManager;
+import de.takko.simple.manager.util.FileManager;
 import org.bukkit.Server;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class EnderChestModule extends SimpleModule {
 

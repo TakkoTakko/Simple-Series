@@ -1,4 +1,4 @@
-package de.takko.simple.modules.enderchest;
+package de.takko.simple.module.enderchest;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

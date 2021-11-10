@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Enderchest plugin",
-  "main": "de.takko.simple.modules.enderchest.EnderChestModule",
+  "main": "de.takko.simple.module.enderchest.EnderChestModule",
   "commands": ["enderchest", "ec"]
 }
