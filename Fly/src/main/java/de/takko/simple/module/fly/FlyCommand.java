@@ -23,11 +23,11 @@ public class FlyCommand implements CommandExecutor {
                 return true;
             }
             Player player = (Player) sender;
-            if (player.getGameMode() == GameMode.CREATIVE && player.getAllowFlight())
+            if (player.getGameMode() == GameMode.CREATIVE && player.getAllowFlight()) {
                 return true;
-
+            }
             player.setAllowFlight(!player.getAllowFlight());
-
+            player.sendMessage(FlyModule.getFileManager().getWithPrefix("self"));
             return true;
         }
 
@@ -38,14 +38,18 @@ public class FlyCommand implements CommandExecutor {
                 return true;
             }
 
-            if (target.getGameMode() == GameMode.CREATIVE && target.getAllowFlight())
+            if (target.getGameMode() == GameMode.CREATIVE && target.getAllowFlight()) {
                 return true;
-
+            }
             target.setAllowFlight(!target.getAllowFlight());
+            sender.sendMessage(FlyModule.getFileManager().getWithPrefix("other.self").replaceAll("%player%", target.getName()));
+            if (target != sender) {
+                target.sendMessage(FlyModule.getFileManager().getWithPrefix("other.other").replaceAll("%player%", sender instanceof Player ? sender.getName() : FlyModule.getFileManager().get("ConsoleReplacement")));
+            }
             return true;
         }
 
-        // Syntax
+        sender.sendMessage(FlyModule.getFileManager().getWithPrefix("syntax"));
         return true;
     }
 }
