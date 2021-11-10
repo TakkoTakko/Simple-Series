@@ -37,6 +37,12 @@ public class FlyModule extends SimpleModule {
         fileManager.addDefault("NoPerm", "&cDazu hast du keine Rechte!");
         fileManager.addDefault("OfflinePlayer", "&cDieser Spieler ist offline");
         fileManager.addDefault("ConsoleReplacement", "Konsole");
+
+        fileManager.addDefault("self", "&aDu hast dein Flugmodus gewechselt.");
+        fileManager.addDefault("other.self", "&aDu hast den Flugmodus von &e%player% &agewechselt.");
+        fileManager.addDefault("other.other", "&aDein Flugmodus wurde von &e%player% &agewechselt.");
+
+        fileManager.addDefault("syntax", "&cBitte benutze&7: &6/fly &7(&6Player&7)");
     }
 
     public static FileManager getFileManager() {
