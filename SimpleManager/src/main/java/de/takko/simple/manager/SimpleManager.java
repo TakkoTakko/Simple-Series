@@ -11,16 +11,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class SimpleManager extends JavaPlugin {
 
     private final Set<SimpleModule> moduleSet = new HashSet<>();
 
-    private List<File> files = new ArrayList<>();
     private Logger logger;
 
     @Getter
@@ -100,7 +96,7 @@ public class SimpleManager extends JavaPlugin {
             return;
         }
 
-        for (File file : this.files) {
+        for (File file : files) {
             try {
                 ModuleLoader loader = new ModuleLoader(new URL[]{file.toURL()}, getClassLoader(), this);
 

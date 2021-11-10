@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder;
 import de.takko.simple.manager.utils.Logger;
 import lombok.Getter;
 import org.bukkit.Server;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,13 +22,13 @@ public class ModuleLoader extends URLClassLoader {
     }
 
     @Getter
-    private final JavaPlugin plugin;
+    private final SimpleManager manager;
     @Getter
-    private /*final */ ModuleInfo moduleInfo;
+    private ModuleInfo moduleInfo;
 
-    public ModuleLoader(URL[] urls, ClassLoader parent, JavaPlugin plugin) {
+    public ModuleLoader(URL[] urls, ClassLoader parent, SimpleManager manager) {
         super(urls, parent);
-        this.plugin = plugin;
+        this.manager = manager;
         InputStream resourceAsStream = getResourceAsStream("module.json");
         //Preconditions.checkNotNull(resourceAsStream, "Missing module.json");
         if (resourceAsStream == null) {
@@ -44,7 +43,7 @@ public class ModuleLoader extends URLClassLoader {
         Class<?> mainClass = loadClass(main);
         Preconditions.checkArgument(SimpleModule.class.isAssignableFrom(mainClass));
 
-        Constructor<?> constructor = mainClass.getConstructor(JavaPlugin.class, Server.class, ModuleInfo.class);
-        return (SimpleModule) constructor.newInstance(plugin, plugin.getServer(), moduleInfo);
+        Constructor<?> constructor = mainClass.getConstructor(SimpleManager.class, Server.class, ModuleInfo.class);
+        return (SimpleModule) constructor.newInstance(manager, manager.getServer(), moduleInfo);
     }
 }
