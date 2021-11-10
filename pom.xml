@@ -21,6 +21,7 @@
         <module>Warp</module>
         <module>Spawn</module>
         <module>Chat</module>
+        <module>Join_Quit_Messages</module>
     </modules>
 
     <properties>

@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Warp System",
-  "main": "de.takko.simple.modules.warp.WarpModule",
+  "main": "de.takko.simple.module.warp.WarpModule",
   "commands": ["warp", "warps", "warpm", "warpmanager"]
 }

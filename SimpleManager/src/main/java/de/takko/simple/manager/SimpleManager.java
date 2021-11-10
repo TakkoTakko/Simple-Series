@@ -1,8 +1,8 @@
 package de.takko.simple.manager;
 
 import com.google.common.base.Joiner;
-import de.takko.simple.manager.utils.Logger;
-import de.takko.simple.manager.utils.Utils;
+import de.takko.simple.manager.util.Logger;
+import de.takko.simple.manager.util.Utils;
 import lombok.Getter;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;

@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Spawn",
-  "main": "de.takko.simple.modules.spawn.SpawnModule",
+  "main": "de.takko.simple.module.spawn.SpawnModule",
   "commands": ["spawn", "setspawn"]
 }

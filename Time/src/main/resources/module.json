@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "Day | Night command",
-  "main": "de.takko.simple.modules.time.TimeModule",
+  "main": "de.takko.simple.module.time.TimeModule",
   "commands": ["day", "night"]
 }

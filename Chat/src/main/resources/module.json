@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "ChatSystem",
-  "main": "de.takko.simple.modules.chat.ChatModule",
+  "main": "de.takko.simple.module.chat.ChatModule",
   "commands": []
 }

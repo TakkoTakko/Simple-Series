@@ -3,6 +3,6 @@
   "version": "1.0",
   "authors": ["Takko"],
   "description": "basic Teamchat",
-  "main": "de.takko.simple.modules.teamchat.TeamchatModule",
+  "main": "de.takko.simple.module.teamchat.TeamchatModule",
   "commands": ["teamchat", "tc"]
 }
