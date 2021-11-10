@@ -1,4 +1,4 @@
-package de.takko.simple.modules.warp.utils;
+package de.takko.simple.modules.warp.util;
 
 import lombok.Getter;
 import org.bukkit.Location;

@@ -1,6 +1,6 @@
 package de.takko.simple.modules.warp;
 
-import de.takko.simple.modules.warp.utils.Warp;
+import de.takko.simple.modules.warp.util.Warp;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -62,7 +62,7 @@ public class WarpManager {
         return null;
     }
 
-    private void loadWarps() {
+    public void loadWarps() {
         for (String warp : cfg.getKeys(false)) {
             World world = Bukkit.getWorld(cfg.getString(warp + ".world"));
             Double  x = cfg.getDouble(warp + ".x"),

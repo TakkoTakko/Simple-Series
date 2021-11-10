@@ -4,5 +4,5 @@
   "authors": ["Takko"],
   "description": "Warp System",
   "main": "de.takko.simple.modules.warp.WarpModule",
-  "commands": ["warp", "warps", "warpm"]
+  "commands": ["warp", "warps", "warpm", "warpmanager"]
 }
