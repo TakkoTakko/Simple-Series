@@ -21,6 +21,7 @@
         <module>Warp</module>
         <module>Spawn</module>
         <module>Chat</module>
+        <module>RewardModule</module>
     </modules>
 
     <properties>

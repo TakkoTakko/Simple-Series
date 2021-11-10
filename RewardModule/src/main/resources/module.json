@@ -1,0 +1,8 @@
+{
+  "name": "Reward",
+  "version": "1.0",
+  "authors": ["DevCyntrix"],
+  "description": "Reward Module",
+  "main": "de.devcyntrix.simple.module.reward.RewardModule",
+  "commands": ["spawnRewardEntity"]
+}

@@ -2,6 +2,7 @@ package de.takko.simple.manager.utils;
 
 import de.takko.simple.manager.SimpleModule;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -71,10 +72,8 @@ public class FileManager {
         save();
     }
 
-    public boolean hasPermission(Player player, String permission) {
-        if (player.hasPermission(permission) || player.hasPermission(adminPermission))
-            return true;
-        return false;
+    public boolean hasPermission(CommandSender sender, String permission) {
+        return sender.hasPermission(permission) || sender.hasPermission(adminPermission);
     }
 
     public String getModulePath() {

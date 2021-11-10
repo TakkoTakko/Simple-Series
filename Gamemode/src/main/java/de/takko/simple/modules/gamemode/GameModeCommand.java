@@ -37,11 +37,10 @@ public class GameModeCommand implements CommandExecutor {
         }
 
         if (args.length == 2) {
-            Player player = (Player) sender;
             GameMode mode = parseGameMode(args[0]);
 
             if (mode == null) {
-                player.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("message.syntax"));
+                sender.sendMessage(GameModeModule.getFileManager().get("prefix") + GameModeModule.getFileManager().get("message.syntax"));
                 return true;
             }
 
@@ -51,19 +50,19 @@ public class GameModeCommand implements CommandExecutor {
                 return true;
             }
 
-            if (target == player) {
-                player.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.error"));
+            if (target == sender) {
+                sender.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.error"));
                 return true;
             }
 
-            if (!GameModeModule.getFileManager().hasPermission(player, GameModeModule.getFileManager().get("permission.gamemode." + mode.getValue()))) {
-                player.sendMessage(GameModeModule.getFileManager().getWithPrefix("NoPerm"));
+            if (!GameModeModule.getFileManager().hasPermission(sender, GameModeModule.getFileManager().get("permission.gamemode." + mode.getValue()))) {
+                sender.sendMessage(GameModeModule.getFileManager().getWithPrefix("NoPerm"));
                 return true;
             }
 
             target.setGameMode(mode);
-            player.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.self." + mode.getValue()).replaceAll("%name%", target.getName()));
-            target.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.other." + mode.getValue()).replaceAll("%name%", player.getName()));
+            sender.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.self." + mode.getValue()).replaceAll("%name%", target.getName()));
+            target.sendMessage(GameModeModule.getFileManager().getWithPrefix("message.other.other." + mode.getValue()).replaceAll("%name%", sender.getName()));
             return true;
         }
         return true;
