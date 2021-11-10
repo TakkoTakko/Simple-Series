@@ -20,6 +20,7 @@
         <module>Time</module>
         <module>Warp</module>
         <module>Spawn</module>
+        <module>Chat</module>
     </modules>
 
     <properties>

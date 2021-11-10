@@ -1,0 +1,8 @@
+{
+  "name": "Chat",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "ChatSystem",
+  "main": "de.takko.simple.modules.chat.ChatModule",
+  "commands": []
+}
