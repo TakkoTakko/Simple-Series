@@ -23,6 +23,8 @@ import org.ipvp.canvas.slot.SlotSettings;
 import org.ipvp.canvas.type.ChestMenu;
 import org.ocpsoft.prettytime.Duration;
 import org.ocpsoft.prettytime.PrettyTime;
+import org.ocpsoft.prettytime.units.JustNow;
+import org.ocpsoft.prettytime.units.Millisecond;
 
 import java.time.Instant;
 import java.util.Date;
@@ -84,9 +86,11 @@ public class RewardEntity {
                         Long time = gotRewards.get(reward.getId());
                         if(time != null && time >= System.currentTimeMillis()) {
                             PrettyTime prettyTime = new PrettyTime(Locale.GERMAN);
+                            prettyTime.removeUnit(JustNow.class);
+                            prettyTime.removeUnit(Millisecond.class);
+
                             List<Duration> durations = prettyTime.calculatePreciseDuration(new Date(time));
-                            player.sendMessage(durations.toString());
-                            player.sendMessage(prettyTime.format(durations));
+                            player.sendMessage(prettyTime.formatDuration(durations));
                             // Send remaining message
                             return;
                         }
