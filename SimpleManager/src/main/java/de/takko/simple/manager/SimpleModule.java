@@ -6,8 +6,8 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -18,14 +18,14 @@ import java.util.Set;
 @Getter
 public abstract class SimpleModule {
 
-    private final JavaPlugin holder;
+    private final SimpleManager holder;
     private final Server server;
     private final ModuleInfo moduleInfo;
 
     @Getter
     private final Set<Listener> listenerSet = new HashSet<>();
 
-    public SimpleModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public SimpleModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         this.holder = holder;
         this.server = server;
         this.moduleInfo = moduleInfo;
@@ -58,6 +58,10 @@ public abstract class SimpleModule {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public File getDataFolder() {
+        return new File(getHolder().getModulesFolder(), getModuleInfo().getName());
     }
 
     public String getModuleDir(SimpleModule module) {
