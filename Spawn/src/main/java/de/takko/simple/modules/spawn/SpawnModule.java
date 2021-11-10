@@ -1,6 +1,7 @@
 package de.takko.simple.modules.spawn;
 
 import de.takko.simple.manager.ModuleInfo;
+import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import de.takko.simple.manager.utils.Utils;
@@ -15,7 +16,7 @@ import java.io.File;
 
 public class SpawnModule extends SimpleModule {
 
-    public SpawnModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public SpawnModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
 

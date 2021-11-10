@@ -1,6 +1,7 @@
 package de.takko.simple.modules.broadcast;
 
 import de.takko.simple.manager.ModuleInfo;
+import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import org.bukkit.Server;
@@ -8,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BroadcastModule extends SimpleModule {
 
-    public BroadcastModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public BroadcastModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
 

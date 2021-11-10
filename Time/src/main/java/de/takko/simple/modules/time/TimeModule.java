@@ -1,6 +1,7 @@
 package de.takko.simple.modules.time;
 
 import de.takko.simple.manager.ModuleInfo;
+import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.utils.FileManager;
 import de.takko.simple.modules.time.commands.DayCommand;
@@ -10,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class TimeModule extends SimpleModule {
 
-    public TimeModule(JavaPlugin holder, Server server, ModuleInfo moduleInfo) {
+    public TimeModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
 
