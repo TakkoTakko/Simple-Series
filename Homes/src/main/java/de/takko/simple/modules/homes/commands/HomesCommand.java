@@ -25,6 +25,10 @@ public class HomesCommand implements CommandExecutor {
         for (Home home : HomesModule.getHomesList().get(player)) {
             homes.add(home.getName());
         }
+        if (homes.isEmpty()) {
+            player.sendMessage(HomesModule.getFileManager().getWithPrefix("NoHomes"));
+            return true;
+        }
         player.sendMessage(HomesModule.getFileManager().getWithPrefix("homes.format").replaceAll("%homes%", Joiner.on(HomesModule.getFileManager().get("homes.seperator")).join(homes)));
         return true;
     }

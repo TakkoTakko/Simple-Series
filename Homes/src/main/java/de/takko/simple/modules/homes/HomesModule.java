@@ -12,7 +12,6 @@ import de.takko.simple.modules.homes.utils.Home;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +50,7 @@ public class HomesModule extends SimpleModule {
         fileManager.addDefault("Prefix", "&7[&bHomes&7] &r");
         fileManager.addDefault("NoPerm", "&cDazu hast du keine Rechte!");
         fileManager.addDefault("NoPlayer", "&cDu musst ein Spieler sein!");
+        fileManager.addDefault("NoHomes", "&cDu hast keine Homes!");
 
         fileManager.addDefault("home.teleport", "&aDu wurdest zu &e%home% &ateleportiert.");
         fileManager.addDefault("home.not_exists", "&cDieser Home existiert nicht!");
