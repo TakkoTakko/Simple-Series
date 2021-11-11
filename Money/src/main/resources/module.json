@@ -1,0 +1,8 @@
+{
+  "name": "Money",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "Money System",
+  "main": "de.takko.simple.money.MoneyModule",
+  "commands": ["money"]
+}

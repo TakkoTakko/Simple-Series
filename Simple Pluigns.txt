@@ -5,8 +5,8 @@ Gamemode   ✓
 homes       ✓
 joinquitmessages   ✓
 maintenance
-money
-rewards
+money   ✓
+rewards   ✓
 teamchat   ✓
 time   ✓
 warps   ✓
