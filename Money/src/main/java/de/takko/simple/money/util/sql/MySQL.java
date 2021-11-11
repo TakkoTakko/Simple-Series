@@ -37,7 +37,7 @@ public class MySQL {
 
     public void close() {
         try {
-            if(connection != null) {
+            if(isConnected()) {
                 connection.close();
                 logger.custom(Logger.ModuleType.MYSQL, "&aMySQL connection closed.");
             }
@@ -53,7 +53,7 @@ public class MySQL {
     public void createTable() {
         if (isConnected()) {
             try {
-                connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS MONEY (UUID VARCHAR(100), NAME VARCHAR(100), KILLS int, DEATHS int , KD DOUBLE, ACR int, COINS int)");
+                connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS MONEY (UUID VARCHAR(100), MONEY int)");
             } catch (SQLException e) {
                 logger.custom(Logger.ModuleType.MYSQL, "§cError while creating database!" + "\n" + e.getMessage());
             }
