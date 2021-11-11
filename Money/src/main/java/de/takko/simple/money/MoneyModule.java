@@ -17,16 +17,18 @@ public class MoneyModule extends SimpleModule {
 
     private static FileManager fileManager;
     private static MySQL mySQL;
-    public static boolean SQL = false;
+    public static boolean sql;
 
     @Override
     public void init() {
         fileManager = new FileManager(this, "Prefix", "simple.money.admin");
-        mySQL = new MySQL("localhost", "3306", "root", "pw");
 
         initConfig();
 
-        if (SQL) {
+        mySQL = new MySQL(MoneyModule.getFileManager().getWithout("mysql.host"), MoneyModule.getFileManager().getWithout("mysql.port"), MoneyModule.getFileManager().getWithout("mysql.user"), MoneyModule.getFileManager().getWithout("mysql.password"));
+        sql = Boolean.parseBoolean(fileManager.getWithout("mysql.enabled"));
+
+        if (sql) {
             mySQL.connect();
         }
 
@@ -46,6 +48,12 @@ public class MoneyModule extends SimpleModule {
         fileManager.addDefault("OfflinePlayer", "&cDieser Spieler ist offline");
         fileManager.addDefault("ConsoleReplacement", "Konsole");
         fileManager.addDefault("defaultMoney", 100);
+
+        fileManager.addDefault("mysql.enabled", true);
+        fileManager.addDefault("mysql.host", "localhost");
+        fileManager.addDefault("mysql.port", "3306");
+        fileManager.addDefault("mysql.user", "root");
+        fileManager.addDefault("mysql.password", "password");
 
         fileManager.addDefault("permission", "simple.money.admin");
         fileManager.addDefault("showMoney", "&aDu besitzt: &e%money%");

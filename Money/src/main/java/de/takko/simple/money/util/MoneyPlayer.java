@@ -3,7 +3,6 @@ package de.takko.simple.money.util;
 import de.takko.simple.money.MoneyModule;
 import de.takko.simple.money.util.sql.MoneyAdapter;
 import de.takko.simple.money.util.sql.MoneyFile;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 
 public class MoneyPlayer {
@@ -15,7 +14,7 @@ public class MoneyPlayer {
     private MoneyFile moneyFile;
 
     static {
-        mySQL = MoneyModule.SQL;
+        mySQL = MoneyModule.sql;
     }
 
     public MoneyPlayer(Player player) {
