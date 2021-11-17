@@ -25,7 +25,7 @@ public class Utils {
         }
     }
 
-    public static String getWithTranslatedColorCodes(String string) {
+    public static String translateColorCodes(String string) {
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 }
