@@ -32,7 +32,6 @@ public class MoneyModule extends SimpleModule {
                     MoneyModule.getFileManager().getWithout("mysql.password"));
             mySQL.connect();
         }
-
         registerListener(new MoneyListener());
         registerCommand("money").setExecutor(new MoneyCommand(this));
     }
