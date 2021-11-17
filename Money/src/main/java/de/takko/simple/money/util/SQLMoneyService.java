@@ -45,17 +45,17 @@ public class SQLMoneyService implements Economy {
     }
 
     @Override
-    public int deposit(String namespace, UUID id, double amount) {
+    public double deposit(String namespace, UUID id, double amount) {
         return 0;
     }
 
     @Override
-    public int withdraw(String namespace, UUID id, double amount) {
+    public double withdraw(String namespace, UUID id, double amount) {
         return 0;
     }
 
     @Override
-    public int getBalance(String namespace, UUID id) {
+    public double getBalance(String namespace, UUID id) {
         return 0;
     }
 }
