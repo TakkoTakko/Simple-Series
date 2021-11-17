@@ -4,13 +4,13 @@ import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
 import de.takko.simple.manager.util.FileManager;
+import de.takko.simple.manager.util.MySQL;
 import de.takko.simple.money.command.MoneyCommand;
 import de.takko.simple.money.listener.MoneyListener;
-import de.takko.simple.money.util.sql.MySQL;
 import org.bukkit.Server;
 
 public class MoneyModule extends SimpleModule {
-    
+
     public MoneyModule(SimpleManager holder, Server server, ModuleInfo moduleInfo) {
         super(holder, server, moduleInfo);
     }
@@ -25,20 +25,23 @@ public class MoneyModule extends SimpleModule {
 
         initConfig();
 
-        mySQL = new MySQL(MoneyModule.getFileManager().getWithout("mysql.host"), MoneyModule.getFileManager().getWithout("mysql.port"), MoneyModule.getFileManager().getWithout("mysql.user"), MoneyModule.getFileManager().getWithout("mysql.password"));
-        sql = Boolean.parseBoolean(fileManager.getWithout("mysql.enabled"));
-
+        this.sql = Boolean.parseBoolean(fileManager.getWithout("mysql.enabled"));
         if (sql) {
+            this.mySQL = new MySQL(MoneyModule.getFileManager().getWithout("mysql.url"),
+                    MoneyModule.getFileManager().getWithout("mysql.user"),
+                    MoneyModule.getFileManager().getWithout("mysql.password"));
             mySQL.connect();
         }
 
         registerListener(new MoneyListener());
-        registerCommand("money").setExecutor(new MoneyCommand());
+        registerCommand("money").setExecutor(new MoneyCommand(this));
     }
 
     @Override
     public void terminate() {
-        mySQL.close();
+        if (mySQL != null) {
+            mySQL.close();
+        }
     }
 
     private void initConfig() {
@@ -50,8 +53,7 @@ public class MoneyModule extends SimpleModule {
         fileManager.addDefault("defaultMoney", 100);
 
         fileManager.addDefault("mysql.enabled", true);
-        fileManager.addDefault("mysql.host", "localhost");
-        fileManager.addDefault("mysql.port", "3306");
+        fileManager.addDefault("mysql.url", "jdbc:mysql://localhost:3306/money?autoReconnect=true");
         fileManager.addDefault("mysql.user", "root");
         fileManager.addDefault("mysql.password", "password");
 
@@ -69,6 +71,7 @@ public class MoneyModule extends SimpleModule {
     public static FileManager getFileManager() {
         return fileManager;
     }
+
     public static MySQL getMySQL() {
         return mySQL;
     }

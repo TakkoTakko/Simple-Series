@@ -1,6 +1,5 @@
-package de.takko.simple.money.util.sql;
+package de.takko.simple.manager.util;
 
-import de.takko.simple.manager.util.Logger;
 import lombok.Getter;
 
 import java.sql.*;
@@ -8,26 +7,22 @@ import java.sql.*;
 @Getter
 public class MySQL {
 
-    private String host;
-    private String database;
+    private final String url;
     private String user;
     private String password;
 
     private Connection connection;
-    private final Logger logger;
+    private final Logger logger = new Logger();
 
-    public MySQL(String host, String database, String user, String password) {
-        this.logger = new Logger();
-
-        this.host = host;
-        this.database = database;
+    public MySQL(String url, String user, String password) {
+        this.url = url;
         this.user = user;
         this.password = password;
     }
 
     public void connect() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://" + host + ":3306/" + database + "?autoReconnect=true", user, password);
+            connection = DriverManager.getConnection(this.url, this.user, this.password);
             logger.custom(Logger.ModuleType.MYSQL, "§aMySQL connected.");
             createTable();
         } catch (SQLException e) {
@@ -37,7 +32,7 @@ public class MySQL {
 
     public void close() {
         try {
-            if(isConnected()) {
+            if (isConnected()) {
                 connection.close();
                 logger.custom(Logger.ModuleType.MYSQL, "&aMySQL connection closed.");
             }

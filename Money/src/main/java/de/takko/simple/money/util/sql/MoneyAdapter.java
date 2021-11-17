@@ -1,6 +1,7 @@
 package de.takko.simple.money.util.sql;
 
 import de.takko.simple.manager.util.Logger;
+import de.takko.simple.manager.util.MySQL;
 import de.takko.simple.money.MoneyModule;
 import org.bukkit.entity.Player;
 
@@ -25,7 +26,7 @@ public class MoneyAdapter {
     public boolean exists() {
         if (mySQL.isConnected()) {
             try {
-                ResultSet rs = mySQL.getResult("SELECT * FROM " + mySQL.getDatabase() + " WHERE UUID='" + player.getUniqueId() + "'");
+                ResultSet rs = mySQL.getResult("SELECT * FROM MONEY WHERE UUID='" + player.getUniqueId() + "'");
                 if (rs.next()) {
                     return (rs.getString("UUID") != null);
                 }
@@ -38,7 +39,7 @@ public class MoneyAdapter {
 
     public void createPlayer() {
         if (!exists()) {
-            mySQL.update("INSERT INTO " + mySQL.getDatabase() + " (UUID, MONEY) VALUES ('" + player.getUniqueId() + "', '" + Integer.valueOf(MoneyModule.getFileManager().getWithout("defaultMoney")) + "');");
+            mySQL.update("INSERT INTO MONEY (UUID, MONEY) VALUES ('" + player.getUniqueId() + "', '" + Integer.valueOf(MoneyModule.getFileManager().getWithout("defaultMoney")) + "');");
         }
     }
 
@@ -46,7 +47,7 @@ public class MoneyAdapter {
         Integer money = null;
         if (exists()) {
             try {
-                ResultSet rs = mySQL.getResult("SELECT * FROM " + mySQL.getDatabase() + " WHERE UUID='" + player.getUniqueId() + "'");
+                ResultSet rs = mySQL.getResult("SELECT * FROM MONEY WHERE UUID='" + player.getUniqueId() + "'");
                 if (rs.next()) {
                     Integer.valueOf(rs.getInt("MONEY"));
                 }
@@ -62,7 +63,7 @@ public class MoneyAdapter {
     }
     public void setMoney(int amount) {
         if (exists()) {
-            mySQL.update("UPDATE " + mySQL.getDatabase() + " SET MONEY='" + amount + "' WHERE UUID='" + player.getUniqueId() + "'");
+            mySQL.update("UPDATE MONEY SET MONEY='" + amount + "' WHERE UUID='" + player.getUniqueId() + "'");
         } else {
             createPlayer();
             setMoney(amount);

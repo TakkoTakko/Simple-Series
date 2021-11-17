@@ -24,6 +24,7 @@
         <module>RewardModule</module>
         <module>Join_Quit_Messages</module>
         <module>Fly</module>
+        <module>Money</module>
     </modules>
 
     <properties>
