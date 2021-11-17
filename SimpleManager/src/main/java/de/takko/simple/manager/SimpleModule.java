@@ -1,5 +1,6 @@
 package de.takko.simple.manager;
 
+import de.takko.simple.manager.util.ManagerConfig;
 import lombok.Getter;
 import org.bukkit.Server;
 import org.bukkit.command.CommandMap;
@@ -24,6 +25,7 @@ public abstract class SimpleModule {
     private final SimpleManager holder;
     private final Server server;
     private final ModuleInfo moduleInfo;
+    private final ManagerConfig managerConfig;
 
     @Getter
     private final Set<Listener> listenerSet = new HashSet<>();
@@ -32,6 +34,7 @@ public abstract class SimpleModule {
         this.holder = holder;
         this.server = server;
         this.moduleInfo = moduleInfo;
+        this.managerConfig = new ManagerConfig();
     }
 
     public abstract void init();
