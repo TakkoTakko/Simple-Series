@@ -50,7 +50,7 @@ public interface Economy {
      * @param amount    the amount which will be deposited to the database
      * @return the new amount in database
      */
-    int deposit(String namespace, UUID id, double amount);
+    double deposit(String namespace, UUID id, double amount);
 
     /**
      * Deposits the amount to the database with the default namespace
@@ -59,7 +59,7 @@ public interface Economy {
      * @param amount the amount which will be deposited to the database
      * @return the new amount in the database
      */
-    default int deposit(UUID id, double amount) {
+    default double deposit(UUID id, double amount) {
         return deposit(DEFAULT_NAMESPACE, id, amount);
     }
 
@@ -71,7 +71,7 @@ public interface Economy {
      * @param amount    the amount which will be withdrawn from the database
      * @return the new amount in the database
      */
-    int withdraw(String namespace, UUID id, double amount);
+    double withdraw(String namespace, UUID id, double amount);
 
     /**
      * Withdraws the amount from the database with the default namespace
@@ -80,7 +80,7 @@ public interface Economy {
      * @param amount the amount which will be withdrawn from the database
      * @return the new amount in the database
      */
-    default int withdraw(UUID id, double amount) {
+    default double withdraw(UUID id, double amount) {
         return withdraw(DEFAULT_NAMESPACE, id, amount);
     }
 
@@ -91,7 +91,7 @@ public interface Economy {
      * @param id        the id of the user
      * @return the current balance in namespace in database
      */
-    int getBalance(String namespace, UUID id);
+    double getBalance(String namespace, UUID id);
 
     /**
      * Gets the balance from the database
@@ -99,7 +99,7 @@ public interface Economy {
      * @param id the id of the user
      * @return the current balance in namespace in database
      */
-    default int getBalance(UUID id) {
+    default double getBalance(UUID id) {
         return getBalance(DEFAULT_NAMESPACE, id);
     }
 

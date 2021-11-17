@@ -51,10 +51,7 @@ public abstract class SimpleModule {
     }
 
     public <T> @Nullable T getService(Class<T> serviceClass) {
-        RegisteredServiceProvider<T> registration = getServer().getServicesManager().getRegistration(serviceClass);
-        if (registration == null)
-            return null;
-        return registration.getProvider();
+        return getServer().getServicesManager().load(serviceClass);
     }
 
     public PluginCommand registerCommand(String name, String... aliases) {
