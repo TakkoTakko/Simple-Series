@@ -41,11 +41,11 @@ public class FileManager {
     }
 
     public String get(String key) {
-        return ChatColor.translateAlternateColorCodes('&', cfg.getString(key));
+        return Utils.translateColorCodes(cfg.getString(key));
     }
 
     public String getWithPrefix(String key) {
-        return ChatColor.translateAlternateColorCodes('&', (cfg.getString(prefixKey) + cfg.getString(key)));
+        return Utils.translateColorCodes(cfg.getString(prefixKey) + cfg.getString(key));
     }
 
     public String getWithout(String key) {
