@@ -1,5 +1,7 @@
 package de.takko.simple.manager.util;
 
+import de.takko.simple.manager.SimpleModule;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
@@ -21,5 +23,9 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getWithTranslatedColorCodes(String string) {
+        return ChatColor.translateAlternateColorCodes('&', string);
     }
 }
