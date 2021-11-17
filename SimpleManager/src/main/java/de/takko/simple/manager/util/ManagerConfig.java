@@ -64,6 +64,29 @@ public class ManagerConfig {
     }
 
     /**
+     * get Prefix
+     * @return
+     */
+    public String getPrefix() {
+        return Utils.translateColorCodes(configuration.getString("Prefix"));
+    }
+    /**
+     * get String with translated color coes
+     * @param key
+     * @return
+     */
+    public String getStringWithTranslatedColorCodes(String key) {
+        return Utils.translateColorCodes(configuration.getString(key));
+    }
+    /**
+     * get String with Prefix
+     * @param key
+     * @return
+     */
+    public String getStringWithPrefix(String key) {
+        return Utils.translateColorCodes(configuration.getString("Prefix") + configuration.getString(key));
+    }
+    /**
      * get string
      * @param key
      * @return
@@ -102,5 +125,21 @@ public class ManagerConfig {
      */
     public boolean getBoolean(String key) {
         return configuration.getBoolean(key);
+    }
+
+    /**
+     * get File
+     * @return
+     */
+    public File getFile() {
+        return file;
+    }
+
+    /**
+     * get Configuration
+     * @return
+     */
+    public FileConfiguration getConfiguration() {
+        return configuration;
     }
 }
