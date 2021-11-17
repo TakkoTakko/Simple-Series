@@ -34,7 +34,7 @@ public class MoneyFile {
         return cfg.getString(player.getUniqueId().toString()) != null;
     }
 
-    public Integer getMoney() {
+    public double getMoney() {
         if (exists()) {
             return cfg.getInt(player.getUniqueId().toString());
         } else {
@@ -43,7 +43,7 @@ public class MoneyFile {
         }
     }
 
-    public void setMoney(int amount) {
+    public void setMoney(double amount) {
         if (exists()) {
             cfg.set(player.getUniqueId().toString(), amount);
             save();
@@ -53,7 +53,7 @@ public class MoneyFile {
         }
     }
 
-    public void addMoney(int amount) {
+    public void addMoney(double amount) {
         if (exists()) {
             cfg.set(player.getUniqueId().toString(), getMoney() + amount);
             save();
@@ -63,7 +63,7 @@ public class MoneyFile {
         }
     }
 
-    public void removeMoney(int amount) {
+    public void removeMoney(double amount) {
         if (exists()) {
             if (getMoney() - amount <= 0) {
                 cfg.set(player.getUniqueId().toString(), 0);

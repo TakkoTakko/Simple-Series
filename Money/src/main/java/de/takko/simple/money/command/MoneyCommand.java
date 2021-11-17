@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class MoneyCommand implements CommandExecutor {
 
@@ -17,14 +18,16 @@ public class MoneyCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
+
+        if(!(sender instanceof Player)) {
+            sender.sendMessage(MoneyModule.getFileManager().getWithPrefix("NoPlayer"));
+            return true;
+        }
+
         Player player = (Player) sender;
         MoneyPlayer moneyPlayer = new MoneyPlayer(player);
         if (args.length == 0) {
-            if (!(sender instanceof Player)) {
-                sender.sendMessage(MoneyModule.getFileManager().getWithPrefix("NoPlayer"));
-                return true;
-            }
             player.sendMessage(MoneyModule.getFileManager().getWithPrefix("showMoney").replaceAll("%money%", String.valueOf(moneyPlayer.getMoney())));
             return true;
         }
@@ -44,8 +47,8 @@ public class MoneyCommand implements CommandExecutor {
             return true;
         }
         if (args.length == 3) {
-            int amount = Integer.parseInt(args[2]);
             Player target = Bukkit.getPlayer(args[0]);
+            double amount = Double.parseDouble(args[2]);
             MoneyPlayer targetMoneyPlayer = new MoneyPlayer(target);
             if (target == null) {
                 sender.sendMessage(MoneyModule.getFileManager().getWithPrefix("OfflinePlayer"));

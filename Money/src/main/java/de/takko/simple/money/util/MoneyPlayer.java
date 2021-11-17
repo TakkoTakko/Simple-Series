@@ -39,28 +39,28 @@ public class MoneyPlayer {
         moneyFile.createPlayer();
     }
 
-    public Integer getMoney() {
+    public double getMoney() {
         if (mySQL) {
             return moneyAdapter.getMoney();
         }
         return moneyFile.getMoney();
     }
 
-    public void setMoney(int amount) {
+    public void setMoney(double amount) {
         if (mySQL) {
             moneyAdapter.setMoney(amount);
         }
         moneyFile.setMoney(amount);
     }
 
-    public void addMoney(int amount) {
+    public void addMoney(double amount) {
         if (mySQL) {
             moneyAdapter.addMoney(amount);
         }
         moneyFile.addMoney(amount);
     }
 
-    public void removeMoney(int amount) {
+    public void removeMoney(double amount) {
         if (mySQL) {
             moneyAdapter.removeMoney(amount);
         }

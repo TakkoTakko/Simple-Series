@@ -61,7 +61,7 @@ public class MoneyAdapter {
         }
         return money;
     }
-    public void setMoney(int amount) {
+    public void setMoney(double amount) {
         if (exists()) {
             mySQL.update("UPDATE MONEY SET MONEY='" + amount + "' WHERE UUID='" + player.getUniqueId() + "'");
         } else {
@@ -69,7 +69,7 @@ public class MoneyAdapter {
             setMoney(amount);
         }
     }
-    public void addMoney(int amount) {
+    public void addMoney(double amount) {
         if (exists()) {
             setMoney(getMoney() + amount);
         } else {
@@ -77,7 +77,7 @@ public class MoneyAdapter {
             addMoney(amount);
         }
     }
-    public void removeMoney(int amount) {
+    public void removeMoney(double amount) {
         if (exists()) {
             if (getMoney() - amount <= 0) {
                 setMoney(0);
