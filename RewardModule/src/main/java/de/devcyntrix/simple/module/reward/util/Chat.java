@@ -19,5 +19,4 @@ public final class Chat {
 
         return matcher.appendTail(buffer).toString();
     }
-
 }
