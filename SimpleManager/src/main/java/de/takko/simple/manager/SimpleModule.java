@@ -6,6 +6,9 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.ServicePriority;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -38,6 +41,17 @@ public abstract class SimpleModule {
     public void registerListener(Listener listener) {
         getServer().getPluginManager().registerEvents(listener, getHolder());
         this.listenerSet.add(listener);
+    }
+
+    public <T> void registerService(Class<T> serviceClass, T instance) {
+        getServer().getServicesManager().register(serviceClass, instance, getHolder(), ServicePriority.Normal);
+    }
+
+    public <T> @Nullable T getService(Class<T> serviceClass) {
+        RegisteredServiceProvider<T> registration = getServer().getServicesManager().getRegistration(serviceClass);
+        if (registration == null)
+            return null;
+        return registration.getProvider();
     }
 
     public PluginCommand registerCommand(String name, String... aliases) {
