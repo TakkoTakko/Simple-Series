@@ -3,7 +3,7 @@ package de.takko.simple.module.teamchat;
 import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.FileManager;
+import de.takko.simple.manager.util.file.FileManager;
 import org.bukkit.Server;
 
 public class TeamchatModule extends SimpleModule {

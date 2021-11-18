@@ -3,7 +3,7 @@ package de.takko.simple.module.homes;
 import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.FileManager;
+import de.takko.simple.manager.util.file.FileManager;
 import de.takko.simple.module.homes.command.HomeCommand;
 import de.takko.simple.module.homes.command.HomesCommand;
 import de.takko.simple.module.homes.listener.HomeListener;

@@ -3,7 +3,7 @@ package de.takko.simple.money;
 import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.FileManager;
+import de.takko.simple.manager.util.file.FileManager;
 import de.takko.simple.manager.util.MySQL;
 import de.takko.simple.money.command.MoneyCommand;
 import de.takko.simple.money.listener.MoneyListener;

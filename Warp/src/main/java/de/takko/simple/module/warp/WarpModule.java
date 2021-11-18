@@ -3,7 +3,7 @@ package de.takko.simple.module.warp;
 import de.takko.simple.manager.ModuleInfo;
 import de.takko.simple.manager.SimpleManager;
 import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.FileManager;
+import de.takko.simple.manager.util.file.FileManager;
 import de.takko.simple.module.warp.command.WarpCommand;
 import de.takko.simple.module.warp.command.WarpsCommand;
 import de.takko.simple.module.warp.command.WarpManagerCommand;
