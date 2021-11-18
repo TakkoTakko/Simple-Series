@@ -36,14 +36,15 @@ public class ManagerConfig {
             e.printStackTrace();
         }
 
-        setDefaultObject("Prefix", "&7[&bwSimpleManager&7] &r");
+        setDefaultObject("Prefix", "&7[&bSimpleManager&7] &r");
         setDefaultObject("NoPermission", "&cDazu hast du keine Rechte!");
 
-        setDefaultObject("placeholder.separator", ", ");
+        setDefaultObject("placeholder.separator", "&7, &e");
         setDefaultObject("permission", "simple.manager.use");
 
         setDefaultObject("module.all.show.size", "&aEs wurden &e%module_size% &aModule geladen.");
         setDefaultObject("module.all.show.format", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors%");
+        setDefaultObject("module.all.names", "&aAlle Module&7: &e%module_all_names%");
 
         setDefaultObject("module.specific.show.all", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors% &7| &aBeschreibung&7: &e%module_description% &7| &aBefehle&7: &e%module_commands%");
         setDefaultObject("module.specific.show.name", "&aName&7: &e%module_name% ");
