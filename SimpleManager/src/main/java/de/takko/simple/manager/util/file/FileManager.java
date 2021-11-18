@@ -1,7 +1,8 @@
-package de.takko.simple.manager.util;
+package de.takko.simple.manager.util.file;
 
 import de.takko.simple.manager.SimpleModule;
-import org.bukkit.ChatColor;
+import de.takko.simple.manager.util.Logger;
+import de.takko.simple.manager.util.Utils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -85,15 +86,6 @@ public class FileManager {
 
     public FileConfiguration getConfiguration() {
         return cfg;
-    }
-
-    private String replaceModulePlaceholders(String string) {
-        return string
-                .replaceAll("%module_name%", module.getModuleInfo().getName())
-                .replaceAll("%module_version%", module.getModuleInfo().getVersion())
-                .replaceAll("%module_authors%", String.join(", ", module.getModuleInfo().getAuthors()))
-                .replaceAll("%module_description%", module.getModuleInfo().getDescription())
-                .replaceAll("%module_commands%", String.join(", ", module.getModuleInfo().getCommands()));
     }
 
     private void save() {

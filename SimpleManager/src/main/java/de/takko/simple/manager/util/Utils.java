@@ -1,6 +1,7 @@
 package de.takko.simple.manager.util;
 
 import de.takko.simple.manager.SimpleModule;
+import de.takko.simple.manager.util.file.ManagerConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -27,5 +28,15 @@ public class Utils {
 
     public static String translateColorCodes(String string) {
         return ChatColor.translateAlternateColorCodes('&', string);
+    }
+
+    public static String replaceModulePlaceholders(SimpleModule module, String string) {
+        ManagerConfig managerConfig = new ManagerConfig();
+        return string
+                .replaceAll("%module_name%", module.getModuleInfo().getName())
+                .replaceAll("%module_version%", module.getModuleInfo().getVersion())
+                .replaceAll("%module_authors%", String.join(managerConfig.getString("placeholder.separator"), module.getModuleInfo().getAuthors()))
+                .replaceAll("%module_description%", module.getModuleInfo().getDescription())
+                .replaceAll("%module_commands%", String.join(managerConfig.getString("placeholder.separator"), module.getModuleInfo().getCommands()));
     }
 }
