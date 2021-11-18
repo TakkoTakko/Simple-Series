@@ -1,8 +1,10 @@
 package de.takko.simple.manager;
 
 import com.google.common.base.Joiner;
+import de.takko.simple.manager.command.InfoCommand;
 import de.takko.simple.manager.util.Logger;
 import de.takko.simple.manager.util.Utils;
+import de.takko.simple.manager.util.file.ManagerConfig;
 import lombok.Getter;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -15,20 +17,27 @@ import java.util.*;
 
 public class SimpleManager extends JavaPlugin {
 
-    private final Set<SimpleModule> moduleSet = new HashSet<>();
+    private final static Set<SimpleModule> moduleSet = new HashSet<>();
 
     private Logger logger;
+
+    private static JavaPlugin javaPlugin;
+    private static ManagerConfig managerConfig;
 
     @Getter
     private File modulesFolder;
 
     @Override
     public void onEnable() {
+        javaPlugin = this;
+        managerConfig = new ManagerConfig();
         logger = new Logger();
 
         logger.log(Logger.LogType.INFO, "§aStarting SimpleManager...");
 
         Utils.sleep(375);
+
+        getCommand("info").setExecutor(new InfoCommand());
 
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aInitializing files...");
@@ -116,5 +125,16 @@ public class SimpleManager extends JavaPlugin {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static JavaPlugin getJavaPlugin() {
+        return javaPlugin;
+    }
+
+    public static Set<SimpleModule> getModuleSet() {
+        return moduleSet;
+    }
+    public static ManagerConfig getManagerConfig() {
+        return managerConfig;
     }
 }
