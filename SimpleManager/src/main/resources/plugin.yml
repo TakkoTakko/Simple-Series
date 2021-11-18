@@ -3,3 +3,6 @@ version: 1.0
 main: de.takko.simple.manager.SimpleManager
 author: Takko, DevCyntrix
 description: Mangagment plugin for Simple plugins
+commands:
+  info:
+    description: Show you info of modules
