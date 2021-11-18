@@ -1,6 +1,8 @@
-package de.takko.simple.manager.util;
+package de.takko.simple.manager.util.file;
 
 import de.takko.simple.manager.SimpleManager;
+import de.takko.simple.manager.util.Utils;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -37,17 +39,18 @@ public class ManagerConfig {
         setDefaultObject("Prefix", "&7[&bwSimpleManager&7] &r");
         setDefaultObject("NoPermission", "&cDazu hast du keine Rechte!");
 
-        setDefaultObject("placeholder.seperator", ", ");
+        setDefaultObject("placeholder.separator", ", ");
+        setDefaultObject("permission", "simple.manager.use");
 
         setDefaultObject("module.all.show.size", "&aEs wurden &e%module_size% &aModule geladen.");
         setDefaultObject("module.all.show.format", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors%");
 
         setDefaultObject("module.specific.show.all", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors% &7| &aBeschreibung&7: &e%module_description% &7| &aBefehle&7: &e%module_commands%");
-        setDefaultObject("module.specific.show.name", "");
-        setDefaultObject("module.specific.show.version", "");
-        setDefaultObject("module.specific.show.authors", "");
-        setDefaultObject("module.specific.show.description", "");
-        setDefaultObject("module.specific.show.commands", "");
+        setDefaultObject("module.specific.show.name", "&aName&7: &e%module_name% ");
+        setDefaultObject("module.specific.show.version", "&aVersion&7: &e%module_version%");
+        setDefaultObject("module.specific.show.authors", "&aAutoren&7: &e%module_authors%");
+        setDefaultObject("module.specific.show.description", "&aBeschreibung&7: &e%module_description%");
+        setDefaultObject("module.specific.show.commands", "&aBefehle&7: &e%module_commands%");
     }
 
     private void setDefaultObject(String key, Object value) {
