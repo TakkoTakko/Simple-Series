@@ -1,13 +1,12 @@
 package de.takko.simple.manager;
 
-import de.takko.simple.manager.util.ManagerConfig;
+import de.takko.simple.manager.util.file.ManagerConfig;
 import lombok.Getter;
 import org.bukkit.Server;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 import org.jetbrains.annotations.Nullable;
 
