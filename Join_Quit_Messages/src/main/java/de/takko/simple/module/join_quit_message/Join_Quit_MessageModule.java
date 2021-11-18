@@ -30,10 +30,12 @@ public class Join_Quit_MessageModule extends SimpleModule {
         fileManager.addDefault("Prefix", "&7[&bJoin & Quit Message&7] &r");
 
         fileManager.addDefault("join.enabled", true);
-        fileManager.addDefault("join.message", "%prefix% &e%player% %ahat den Server betreten.");
+        fileManager.addDefault("join.message", "%prefix% &e%player% &ahat den Server betreten.");
 
         fileManager.addDefault("quit.enabled", true);
-        fileManager.addDefault("quit.message", "%prefix% &e%player% %ahat den Server verlassen.");
+        fileManager.addDefault("quit.message", "%prefix% &e%player% &ahat den Server verlassen.");
+
+        fileManager.saveDefaults();
     }
 
     public static FileManager getFileManager() {
