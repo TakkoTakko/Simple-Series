@@ -8,10 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class InfoCommand implements CommandExecutor {
 
@@ -25,8 +22,8 @@ public class InfoCommand implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            sender.sendMessage(SimpleManager.getManagerConfig().getStringWithPrefix("module.all.show.size").replaceAll("%module_size%", String.valueOf(SimpleManager.getModuleSet().size())));
-            for (SimpleModule module : SimpleManager.getModuleSet()) {
+            sender.sendMessage(SimpleManager.getManagerConfig().getStringWithPrefix("module.all.show.size").replaceAll("%module_size%", String.valueOf(SimpleManager.getModules().size())));
+            for (SimpleModule module : SimpleManager.getModules()) {
                 sender.sendMessage(Utils.replaceModulePlaceholders(module, SimpleManager.getManagerConfig().getStringWithPrefix("module.all.show.format")));
             }
             return true;
@@ -40,8 +37,20 @@ public class InfoCommand implements CommandExecutor {
             if (args[0].equalsIgnoreCase("all")) {
                 if (args[1].equalsIgnoreCase("names")) {
                     List<String> modules = new ArrayList<>();
-                    SimpleManager.getModuleSet().forEach(module -> { modules.add(module.getModuleInfo().getName()); });
+                    SimpleManager.getModules().forEach(module -> { modules.add(module.getModuleInfo().getName()); });
                     sender.sendMessage(Utils.translateColorCodes(SimpleManager.getManagerConfig().getStringWithPrefix("module.all.names").replaceAll("%module_all_names%", String.join(SimpleManager.getManagerConfig().getString("placeholder.separator"), modules))));
+                    return true;
+                }
+                if (args[1].equalsIgnoreCase("commands")) {
+                    Set<String> commands = new HashSet<>();
+                    SimpleManager.getModules().forEach(module -> {
+                        commands.addAll(Arrays.asList(module.getModuleInfo().getCommands()));
+                    });
+                    if (commands.size() == 0) {
+                        sender.sendMessage(Utils.translateColorCodes(SimpleManager.getManagerConfig().getStringWithPrefix("module.all.commands.no")));
+                        return true;
+                    }
+                    sender.sendMessage(Utils.translateColorCodes(SimpleManager.getManagerConfig().getStringWithPrefix("module.all.commands.format").replaceAll("%module_commands%", String.join(SimpleManager.getManagerConfig().getString("placeholder.separator"), commands))));
                     return true;
                 }
             }
