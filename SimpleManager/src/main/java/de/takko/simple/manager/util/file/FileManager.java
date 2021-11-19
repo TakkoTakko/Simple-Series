@@ -42,15 +42,15 @@ public class FileManager {
     }
 
     public String get(String key) {
-        return Utils.translateColorCodes(cfg.getString(key));
+        return Utils.translateColorCodes(cfg.getString(key)).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
     }
 
     public String getWithPrefix(String key) {
-        return Utils.translateColorCodes(cfg.getString(prefixKey) + cfg.getString(key));
+        return Utils.translateColorCodes(cfg.getString(prefixKey) + cfg.getString(key)).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
     }
 
     public String getWithout(String key) {
-        return cfg.getString(key);
+        return cfg.getString(key).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
     }
 
     public void set(String key, Object value) {
