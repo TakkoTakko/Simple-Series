@@ -131,7 +131,7 @@ public class SimpleManager extends JavaPlugin {
         return javaPlugin;
     }
 
-    public static Set<SimpleModule> getModuleSet() {
+    public static Set<SimpleModule> getModules() {
         return moduleSet;
     }
     public static ManagerConfig getManagerConfig() {
