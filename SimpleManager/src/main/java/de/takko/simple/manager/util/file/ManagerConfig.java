@@ -45,6 +45,8 @@ public class ManagerConfig {
         setDefaultObject("module.all.show.size", "&aEs wurden &e%module_size% &aModule geladen.");
         setDefaultObject("module.all.show.format", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors%");
         setDefaultObject("module.all.names", "&aAlle Module&7: &e%module_all_names%");
+        setDefaultObject("module.all.commands.no", "&cEs wurden keine Befehle gefunden.");
+        setDefaultObject("module.all.commands.format", "&aAlle Befehle&7: &e%module_commands%");
 
         setDefaultObject("module.specific.show.all", "&aName&7: &e%module_name% &7| &aVersion&7: &e%module_version% &7| &aAutoren&7: &e%module_authors% &7| &aBeschreibung&7: &e%module_description% &7| &aBefehle&7: &e%module_commands%");
         setDefaultObject("module.specific.show.name", "&aName&7: &e%module_name% ");
@@ -52,6 +54,8 @@ public class ManagerConfig {
         setDefaultObject("module.specific.show.authors", "&aAutoren&7: &e%module_authors%");
         setDefaultObject("module.specific.show.description", "&aBeschreibung&7: &e%module_description%");
         setDefaultObject("module.specific.show.commands", "&aBefehle&7: &e%module_commands%");
+
+        setDefaultObject("module.main_prefix", "&bYourServer.de");
     }
 
     private void setDefaultObject(String key, Object value) {
@@ -96,7 +100,7 @@ public class ManagerConfig {
      * @return
      */
     public String getString(String key) {
-        return configuration.getString(key);
+        return Utils.translateColorCodes(configuration.getString(key));
     }
     /**
      * get integer
