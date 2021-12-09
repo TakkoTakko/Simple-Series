@@ -35,7 +35,7 @@ public class SimpleManager extends JavaPlugin {
 
         logger.log(Logger.LogType.INFO, "§aStarting SimpleManager...");
 
-        Utils.sleep(375);
+        //Utils.sleep(375);
 
         getCommand("info").setExecutor(new InfoCommand());
 
@@ -43,20 +43,20 @@ public class SimpleManager extends JavaPlugin {
         logger.log(Logger.LogType.INFO, "§aInitializing files...");
         logger.log(Logger.LogType.SPACE, null);
 
-        Utils.sleep(750);
+        //Utils.sleep(750);
         initFiles();
 
         logger.log(Logger.LogType.INFO, "§aAll files initialized");
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aLoading modules...");
         logger.log(Logger.LogType.SPACE, null);
-        Utils.sleep(750);
+        //Utils.sleep(750);
 
         loadModules(this.modulesFolder);
 
         logger.log(Logger.LogType.INFO, "§aLoaded all modules.");
 
-        Utils.sleep(375);
+        //Utils.sleep(375);
 
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aSimpleManager started successfully.");
