@@ -1,6 +1,6 @@
-package de.takko.simple.manager;
+package de.takko.simple.manager.base;
 
-import de.takko.simple.manager.util.file.ManagerConfig;
+import de.takko.simple.manager.base.util.file.ManagerConfig;
 import lombok.Getter;
 import org.bukkit.Server;
 import org.bukkit.command.CommandMap;

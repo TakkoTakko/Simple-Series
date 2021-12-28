@@ -1,4 +1,4 @@
-package de.takko.simple.manager.util;
+package de.takko.simple.manager.base.util;
 
 import lombok.Getter;
 

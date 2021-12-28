@@ -1,8 +1,8 @@
-package de.takko.simple.manager.command;
+package de.takko.simple.manager.plugin.command;
 
-import de.takko.simple.manager.SimpleManager;
-import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.Utils;
+import de.takko.simple.manager.base.SimpleManager;
+import de.takko.simple.manager.base.SimpleModule;
+import de.takko.simple.manager.base.util.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

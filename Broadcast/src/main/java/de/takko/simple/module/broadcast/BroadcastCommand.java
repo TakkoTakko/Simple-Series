@@ -12,7 +12,7 @@ public class BroadcastCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (sender instanceof Player) {
-            if (!BroadcastModule.getFileManager().hasPermission(((Player) sender), BroadcastModule.getFileManager().get("permission"))) {
+            if (!BroadcastModule.getFileManager().hasPermission((sender), BroadcastModule.getFileManager().get("permission"))) {
                 sender.sendMessage(BroadcastModule.getFileManager().getWithPrefix("NoPerm"));
                 return true;
             }

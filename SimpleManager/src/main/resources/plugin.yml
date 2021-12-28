@@ -1,6 +1,6 @@
 name: SimpleManager
 version: 1.0
-main: de.takko.simple.manager.SimpleManager
+main: de.takko.simple.manager.base.SimpleManager
 author: Takko, DevCyntrix
 description: Mangagment plugin for Simple plugins
 commands:

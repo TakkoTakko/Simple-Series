@@ -1,7 +1,7 @@
 package de.takko.simple.money.util;
 
 import de.takko.simple.manager.api.Economy;
-import de.takko.simple.manager.util.MySQL;
+import de.takko.simple.manager.base.util.MySQL;
 import de.takko.simple.money.MoneyModule;
 
 import java.text.DecimalFormat;

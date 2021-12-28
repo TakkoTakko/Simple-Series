@@ -1,10 +1,9 @@
-package de.takko.simple.manager;
+package de.takko.simple.manager.base;
 
 import com.google.common.base.Joiner;
-import de.takko.simple.manager.command.InfoCommand;
-import de.takko.simple.manager.util.Logger;
-import de.takko.simple.manager.util.Utils;
-import de.takko.simple.manager.util.file.ManagerConfig;
+import de.takko.simple.manager.plugin.command.InfoCommand;
+import de.takko.simple.manager.base.util.Logger;
+import de.takko.simple.manager.base.util.file.ManagerConfig;
 import lombok.Getter;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -35,28 +34,22 @@ public class SimpleManager extends JavaPlugin {
 
         logger.log(Logger.LogType.INFO, "§aStarting SimpleManager...");
 
-        //Utils.sleep(375);
-
         getCommand("info").setExecutor(new InfoCommand());
 
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aInitializing files...");
         logger.log(Logger.LogType.SPACE, null);
 
-        //Utils.sleep(750);
         initFiles();
 
         logger.log(Logger.LogType.INFO, "§aAll files initialized");
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aLoading modules...");
         logger.log(Logger.LogType.SPACE, null);
-        //Utils.sleep(750);
 
         loadModules(this.modulesFolder);
 
         logger.log(Logger.LogType.INFO, "§aLoaded all modules.");
-
-        //Utils.sleep(375);
 
         logger.log(Logger.LogType.SPACE, null);
         logger.log(Logger.LogType.INFO, "§aSimpleManager started successfully.");
@@ -65,25 +58,7 @@ public class SimpleManager extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        for (SimpleModule simpleModule : this.moduleSet) {
-            simpleModule.terminate();
-            for (Listener listener : simpleModule.getListenerSet()) {
-                HandlerList.unregisterAll(listener);
-                logger.log(Logger.LogType.UNLOADING, "§e" + getDescription().getName() + " §ais shutting down.");
-            }
-
-            ClassLoader classLoader = simpleModule.getClass().getClassLoader();
-            if (classLoader instanceof ModuleLoader) {
-                ModuleLoader loader = (ModuleLoader) simpleModule.getClass().getClassLoader();
-                try {
-                    logger.log(Logger.LogType.INFO, "§aClosing class loader");
-                    loader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        this.moduleSet.clear();
+        unloadModules();
     }
 
     private void initFiles() {
@@ -102,6 +77,7 @@ public class SimpleManager extends JavaPlugin {
         File[] files = modulesFolder.listFiles(file -> file.isFile() && file.getName().endsWith(".jar"));
         if (files == null || files.length == 0) {
             logger.log(Logger.LogType.WARNING, "§7No modules to load.");
+            logger.log(Logger.LogType.SPACE, null);
             return;
         }
 
@@ -125,6 +101,30 @@ public class SimpleManager extends JavaPlugin {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void unloadModules() {
+        for (SimpleModule module : this.moduleSet) {
+            module.terminate();
+            for (Listener listener : module.getListenerSet()) {
+                HandlerList.unregisterAll(listener);
+            }
+
+            ClassLoader classLoader = module.getClass().getClassLoader();
+            if (classLoader instanceof ModuleLoader) {
+                ModuleLoader loader = (ModuleLoader) module.getClass().getClassLoader();
+                try {
+                    loader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            logger.log(Logger.LogType.UNLOADING, "§aModule §e" + module.getModuleInfo().getName() + "§a was successfully unloaded.");
+        }
+        this.moduleSet.clear();
+
+        logger.log(Logger.LogType.SPACE, null);
+        logger.log(Logger.LogType.INFO, "§aAll modules unloaded!");
     }
 
     public static JavaPlugin getJavaPlugin() {

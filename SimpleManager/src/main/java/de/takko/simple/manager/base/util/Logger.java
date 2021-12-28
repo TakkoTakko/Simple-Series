@@ -1,4 +1,4 @@
-package de.takko.simple.manager.util;
+package de.takko.simple.manager.base.util;
 
 import org.bukkit.Bukkit;
 
@@ -27,20 +27,20 @@ public class Logger {
                 Bukkit.getConsoleSender().sendMessage("");
                 break;
             case LOADING:
-                Bukkit.getConsoleSender().sendMessage("§7[§bSimpleManager-Modules§7] §7[§2LOADING§7] §r" + message);
+                Bukkit.getConsoleSender().sendMessage("§7[§bSimple-Modules§7] §7[§2LOADING§7] §r" + message);
                 break;
             case LOADED:
-                Bukkit.getConsoleSender().sendMessage("§7[§bSimpleManager-Modules§7] §7[§aLOADED§7] §r" + message);
+                Bukkit.getConsoleSender().sendMessage("§7[§bSimple-Modules§7] §7[§aLOADED§7] §r" + message);
                 break;
             case UNLOADING:
-                Bukkit.getConsoleSender().sendMessage("§7[§bSimpleManager-Modules§7] §7[§aUNLOADING§7] §r" + message);
+                Bukkit.getConsoleSender().sendMessage("§7[§bSimple-Modules§7] §7[§aUNLOADING§7] §r" + message);
                 break;
         }
     }
     public void custom(ModuleType type, String message) {
         switch (type) {
             case MYSQL:
-                Bukkit.getConsoleSender().sendMessage("§7[§bSimpleManager-Modules§7] §7[§bMySQL§7] §r" + message);
+                Bukkit.getConsoleSender().sendMessage("§7[§bSimple-Modules§7] §7[§bMySQL§7] §r" + message);
                 break;
         }
     }

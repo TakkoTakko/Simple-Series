@@ -1,9 +1,9 @@
 package de.takko.simple.module.join_quit_message;
 
-import de.takko.simple.manager.ModuleInfo;
-import de.takko.simple.manager.SimpleManager;
-import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.file.FileManager;
+import de.takko.simple.manager.base.ModuleInfo;
+import de.takko.simple.manager.base.SimpleManager;
+import de.takko.simple.manager.base.SimpleModule;
+import de.takko.simple.manager.base.util.file.FileManager;
 import org.bukkit.Server;
 
 public class Join_Quit_MessageModule extends SimpleModule {

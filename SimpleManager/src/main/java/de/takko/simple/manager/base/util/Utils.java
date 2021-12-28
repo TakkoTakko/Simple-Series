@@ -1,7 +1,7 @@
-package de.takko.simple.manager.util;
+package de.takko.simple.manager.base.util;
 
-import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.file.ManagerConfig;
+import de.takko.simple.manager.base.SimpleModule;
+import de.takko.simple.manager.base.util.file.ManagerConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 

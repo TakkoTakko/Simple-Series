@@ -1,6 +1,6 @@
 package de.takko.simple.module.join_quit_message;
 
-import de.takko.simple.manager.util.Utils;
+import de.takko.simple.manager.base.util.Utils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

@@ -1,7 +1,7 @@
 package de.takko.simple.money.util.sql;
 
-import de.takko.simple.manager.util.Logger;
-import de.takko.simple.manager.util.MySQL;
+import de.takko.simple.manager.base.util.Logger;
+import de.takko.simple.manager.base.util.MySQL;
 import de.takko.simple.money.MoneyModule;
 import org.bukkit.entity.Player;
 

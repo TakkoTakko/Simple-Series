@@ -1,4 +1,4 @@
-package de.takko.simple.manager;
+package de.takko.simple.manager.base;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;

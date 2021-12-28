@@ -1,8 +1,7 @@
-package de.takko.simple.manager.util.file;
+package de.takko.simple.manager.base.util.file;
 
-import de.takko.simple.manager.SimpleManager;
-import de.takko.simple.manager.util.Utils;
-import org.bukkit.command.CommandSender;
+import de.takko.simple.manager.base.SimpleManager;
+import de.takko.simple.manager.base.util.Utils;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

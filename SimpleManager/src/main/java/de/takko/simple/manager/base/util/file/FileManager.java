@@ -1,8 +1,8 @@
-package de.takko.simple.manager.util.file;
+package de.takko.simple.manager.base.util.file;
 
-import de.takko.simple.manager.SimpleModule;
-import de.takko.simple.manager.util.Logger;
-import de.takko.simple.manager.util.Utils;
+import de.takko.simple.manager.base.SimpleModule;
+import de.takko.simple.manager.base.util.Logger;
+import de.takko.simple.manager.base.util.Utils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -42,16 +42,24 @@ public class FileManager {
     }
 
     public String get(String key) {
-        return Utils.translateColorCodes(cfg.getString(key)).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
+        String get = Utils.translateColorCodes(cfg.getString(key));
+        return get.contains("%manager_module_prefix%") ? get.replaceAll("%manager_module_prefix%", getWithoutReplacements("module.main_prefix")) : get;
     }
 
     public String getWithPrefix(String key) {
-        return Utils.translateColorCodes(cfg.getString(prefixKey) + cfg.getString(key)).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
+        String get = Utils.translateColorCodes(cfg.getString(key));
+        return get.contains("%manager_module_prefix%") ? Utils.translateColorCodes(cfg.getString(prefixKey)) + get.replaceAll("%manager_module_prefix%", getWithoutReplacements("module.main_prefix")) : Utils.translateColorCodes(cfg.getString(prefixKey)) + get;
     }
 
     public String getWithout(String key) {
-        return cfg.getString(key).replaceAll("%manager_module_prefix%", get("module.main_prefix"));
+        String get = cfg.getString(key);
+        return get.contains("%manager_module_prefix%") ? get.replaceAll("%manager_module_prefix%", getWithoutReplacements("module.main_prefix")) : get;
     }
+
+    public String getWithoutReplacements(String key) {
+        return Utils.translateColorCodes(cfg.getString(key));
+    }
+
 
     public void set(String key, Object value) {
         cfg.set(key, value);
