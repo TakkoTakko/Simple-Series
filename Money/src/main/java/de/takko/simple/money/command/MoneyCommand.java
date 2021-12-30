@@ -43,6 +43,7 @@ public class MoneyCommand implements CommandExecutor {
                 sender.sendMessage(MoneyModule.getFileManager().getWithPrefix("OfflinePlayer"));
                 return true;
             }
+            //TODO: andere nachrciht
             sender.sendMessage(MoneyModule.getFileManager().getWithPrefix("showMoney").replaceAll("%money%", String.valueOf(new MoneyPlayer(target).getMoney())));
             return true;
         }

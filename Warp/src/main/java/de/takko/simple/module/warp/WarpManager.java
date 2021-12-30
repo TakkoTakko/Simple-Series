@@ -42,13 +42,22 @@ public class WarpManager {
     }
 
     public boolean exists(String name) {
-        return cfg.get(name) != null;
+        for (Warp warp : WarpModule.getWarpList()) {
+            if (warp.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void removeWarp(String name) {
-        cfg.set(name, null);
+    public boolean exists(Warp warp) {
+        return WarpModule.getWarpList().contains(warp);
+    }
 
-        WarpModule.getWarpList().remove(getWarp(name));
+    public void removeWarp(Warp warp) {
+        cfg.set(warp.getName(), null);
+
+        WarpModule.getWarpList().remove(warp);
 
         save();
     }

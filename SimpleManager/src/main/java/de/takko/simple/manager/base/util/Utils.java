@@ -4,9 +4,13 @@ import de.takko.simple.manager.base.SimpleModule;
 import de.takko.simple.manager.base.util.file.ManagerConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class Utils {
 

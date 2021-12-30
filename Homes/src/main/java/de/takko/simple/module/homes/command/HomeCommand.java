@@ -42,15 +42,17 @@ public class HomeCommand implements CommandExecutor {
                     player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.not_exists"));
                     return true;
                 }
-                homeManager.removeHome(name);
-                player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.remove").replaceAll("%home%", name));
+                Home home = homeManager.getHome(name);
+                player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.remove").replaceAll("%home%", home.getName()));
+                homeManager.removeHome(home);
             }
             else if (args[0].equalsIgnoreCase("update") || args[0].equalsIgnoreCase("change")) {
                 if (!homeManager.exists(name)) {
                     player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.not_exists"));
                     return true;
                 }
-                homeManager.removeHome(name);
+                Home home = homeManager.getHome(name);
+                homeManager.removeHome(home);
                 homeManager.addHome(player.getLocation(), name);
                 player.sendMessage(HomesModule.getFileManager().getWithPrefix("home.update").replaceAll("%home%", name));
             }

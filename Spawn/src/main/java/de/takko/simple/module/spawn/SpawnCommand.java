@@ -13,7 +13,7 @@ public class SpawnCommand implements CommandExecutor {
             return true;
         }
         Player player = (Player) sender;
-        if (!SpawnModule.set()) {
+        if (!SpawnModule.isSpawnSet()) {
             player.sendMessage(SpawnModule.getFileManager().getWithPrefix("NoSpawn"));
             return true;
         }

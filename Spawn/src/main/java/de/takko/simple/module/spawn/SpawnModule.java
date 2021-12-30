@@ -38,12 +38,13 @@ public class SpawnModule extends SimpleModule {
     }
 
     @Override
-    public void terminate() {
-
-    }
+    public void terminate() {}
 
     private void loadLocation() {
-        if (fileManager.get("location") == null) {
+        if (!fileManager.getFile().exists()) {
+            fileManager.createFile();
+        }
+        if (fileManager.getWithoutReplacements("location.world") == null) {
             logger.log(Logger.LogType.WARNING, "§7No spawn set");
             return;
         }
@@ -56,7 +57,7 @@ public class SpawnModule extends SimpleModule {
         spawn = new Location(world, x, y, z, yaw, pitch);
     }
 
-    public static boolean set() {
+    public static boolean isSpawnSet() {
         return spawn != null;
     }
 

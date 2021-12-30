@@ -9,7 +9,7 @@ public class SpawnListener implements Listener {
     @EventHandler
     public void handle(PlayerJoinEvent event) {
         if (Boolean.parseBoolean(SpawnModule.getFileManager().get("teleportOnJoin"))) {
-            if (SpawnModule.set()) {
+            if (SpawnModule.isSpawnSet()) {
                 event.getPlayer().teleport(SpawnModule.spawn);
             }
         }

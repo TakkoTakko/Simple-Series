@@ -51,9 +51,14 @@ public class HomeManager {
         HomesModule.getHomesList().put(player, homes);
     }
 
-    public boolean removeHome(String name) {
+    public void addHome(Home home) {
+        homes.add(home);
+        HomesModule.getHomesList().put(player, homes);
+    }
+
+    public boolean removeHome(Home home) {
         try {
-            homes.remove(getHome(name));
+            homes.remove(home);
             HomesModule.getHomesList().put(player, homes);
             return true;
         } catch (Exception ignored) {

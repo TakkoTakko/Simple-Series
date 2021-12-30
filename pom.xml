@@ -25,6 +25,7 @@
         <module>Join_Quit_Messages</module>
         <module>Fly</module>
         <module>Money</module>
+        <module>Backpack</module>
     </modules>
 
     <properties>

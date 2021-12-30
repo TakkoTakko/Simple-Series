@@ -28,10 +28,10 @@ public class FileManager {
         this.prefixKey = prefixKey;
         this.adminPermission = adminPermission;
 
-        createFiles();
+        createFile();
     }
 
-    private void createFiles() {
+    public void createFile() {
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -57,7 +57,8 @@ public class FileManager {
     }
 
     public String getWithoutReplacements(String key) {
-        return Utils.translateColorCodes(cfg.getString(key));
+        String get = cfg.getString(key);
+        return get == null ? null : Utils.translateColorCodes(get);
     }
 
 

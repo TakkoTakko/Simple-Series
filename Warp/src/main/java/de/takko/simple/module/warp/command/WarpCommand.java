@@ -1,6 +1,7 @@
 package de.takko.simple.module.warp.command;
 
 import de.takko.simple.module.warp.WarpModule;
+import de.takko.simple.module.warp.util.Warp;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,13 +18,14 @@ public class WarpCommand implements CommandExecutor {
             sender.sendMessage(WarpModule.getFileManager().getWithPrefix("syntax"));
             return true;
         }
-        String warp = args[0];
+        String warpName = args[0];
+        Warp warp = WarpModule.getWarpManager().getWarp(warpName);
         if (!WarpModule.getWarpManager().exists(warp)) {
             sender.sendMessage(WarpModule.getFileManager().getWithPrefix("not_exists"));
             return true;
         }
-        ((Player) sender).teleport(WarpModule.getWarpManager().getWarp(warp).getLocation());
-        sender.sendMessage(WarpModule.getFileManager().getWithPrefix("teleport").replaceAll("%warp%", warp));
+        ((Player) sender).teleport(WarpModule.getWarpManager().getWarp(warpName).getLocation());
+        sender.sendMessage(WarpModule.getFileManager().getWithPrefix("teleport").replaceAll("%warp%", warp.getName()));
         return true;
     }
 }

@@ -12,7 +12,7 @@ public class FlyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (!FlyModule.getFileManager().hasPermission(sender, FlyModule.getFileManager().getWithout("permission"))) {
+        if (!FlyModule.getFileManager().hasPermission(sender, FlyModule.getFileManager().get("permission"))) {
             sender.sendMessage(FlyModule.getFileManager().getWithPrefix("NoPerm"));
             return true;
         }

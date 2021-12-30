@@ -38,14 +38,13 @@ public class WarpModule extends SimpleModule {
     }
 
     @Override
-    public void terminate() {
-
-    }
+    public void terminate() {}
 
     private void initConfig() {
         fileManager.addDefault("Prefix", "&7[&bWarps&7] &r");
         fileManager.addDefault("NoPerm", "&cDazu hast du keine Rechte!");
         fileManager.addDefault("NoPlayer", "&cDu musst ein Spieler sein!");
+        fileManager.addDefault("name_already_used", "&cDiesen Warp gibt es schon :D");
         fileManager.addDefault("NoWarps", "&cEs gibt noch keine Warps!");
         fileManager.addDefault("warps", "&aAlle Warps&7: &e%warps%");
         fileManager.addDefault("syntax", "&cNutz den Befehl richtig xD");
