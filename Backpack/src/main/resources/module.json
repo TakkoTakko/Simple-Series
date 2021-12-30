@@ -1,0 +1,8 @@
+{
+  "name": "Backpack",
+  "version": "1.0",
+  "authors": ["Takko"],
+  "description": "Backpack Plugin",
+  "main": "de.takko.simple.module.backpack.BackpackModule",
+  "commands": []
+}
